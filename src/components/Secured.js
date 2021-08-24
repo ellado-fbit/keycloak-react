@@ -17,10 +17,14 @@ export const Secured = () => {
       { keycloak && !authenticated && <div>Imposible loguearse!</div> }
       { keycloak && authenticated &&
         <div>
-          <div>Te has logueado!!</div>
-          <div>User info: {userName} (Email: {userEmail}) (Id: {userId})</div>
-          <div>JWT: {keycloak.token}</div>
+          <div><br/>Te has logueado!!</div>
+          <div><br/>User info:<br/>(Name: {userName}) (Email: {userEmail}) (Id: {userId})</div>
+          <div><br/>JWT: {keycloak.token}</div>
+          <div><br/>Keycloak object keys:<br/>{Object.keys(keycloak).join(', ')}</div>
+          <div><br/>Token parsed:<br/>{JSON.stringify(keycloak.tokenParsed)}</div>
+          <div><br/>Id token parsed:<br/>{JSON.stringify(keycloak.idTokenParsed)}</div>
           <div>
+            <br/>
             <button onClick={logout}>
               Logout
             </button>
